@@ -6,6 +6,8 @@ def prepare_data(df: pd.DataFrame) -> pd.DataFrame:
     """
     df = df.copy()
 
+    df = df.loc[:, ~df.columns.astype(str).str.contains('^Unnamed')]
+
     
     default_headers_sim = ['time', 'Fx', 'timey', 'Fy', 'timez', 'Fz']
     default_headers_paper = ['time', 'Force']
